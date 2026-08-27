@@ -1,6 +1,11 @@
-/* Hello world program */
 #include <stdio.h>
 
-int main() {
-  printf("Hello world!\n"); // Actually do the work here
+int foo(void); // This is the prototype
+
+int main(void) {
+  int i;
+  i = foo();
+  printf("%d\n", i);
 }
+
+int foo(void) { return 3490; }
