@@ -5,7 +5,6 @@ Just a repo for playing with C, while reading [Beej's Guide to C Programming](ht
 ## Structure
 
 - main.c - my main working file up until i start to write multi-file code
-- a.out - default output binary executable (i decided to use default name for it)
 
 ## How to run
 
