@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <_printf.h>
 
 int foo(void); // This is the prototype
 
