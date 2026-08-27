@@ -2,6 +2,6 @@
 #include <stdio.h>
 
 int main() {
-  int i = 0;
+  int i = 5;
   printf("Hello world!\n"); // Actually do the work here
 }
