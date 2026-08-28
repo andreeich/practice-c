@@ -1,11 +1,7 @@
 #include <_printf.h>
 
-int foo(void); // This is the prototype
-
 int main(void) {
-  int i;
-  i = foo();
-  printf("%d\n", i);
+  int i = 10;
+  printf("The value of i is %d\n", i);
+  printf("And its address is %p\n", (void *)&i);
 }
-
-int foo(void) { return 3490; }
