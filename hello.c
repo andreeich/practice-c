@@ -1,8 +1,7 @@
-#include <_printf.h>
+#include <stdio.h>
+#include <string.h>
 
 int main(void) {
-  char s[] = "Hello world!";
-  for (int i = 0; i < 13; i++) {
-    printf("%c", s[i]);
-  }
+  char s[] = "Hello \0world!"; // explicit terminator
+  printf("\"%s\" is %zu bytes long", s, strlen(s));
 }
