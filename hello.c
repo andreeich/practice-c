@@ -1,11 +1,19 @@
 #include <_printf.h>
 
-int main(void) {
-  int arr[5] = {1, 2, 3, 4, 5};
-  int *p;
+// all declarations means the same
+void double_array(int a[4], int len);
+void double_array(int a[], int len);
+void double_array(int *a, int len) {
+  for (int i = 0; i < len; i++) {
+    a[i] *= 2;
+  }
+}
 
-  p = &arr[0];
-  printf("address of arr is %p\n", (void *)p);
-  p = arr;
-  printf("address of arr is %p\n", (void *)p);
+int main(void) {
+  int a[4] = {1, 2, 3, 4};
+  double_array(a, 4);
+
+  for (int i = 0; i < 4; i++) {
+    printf("%d\n", a[i]);
+  }
 }
