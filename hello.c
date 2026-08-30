@@ -1,15 +1,15 @@
 #include <_printf.h>
 
+void increment(int *p) { *p = *p + 1; }
+
 int main(void) {
-  int i;
-  int *p;
+  int i = 10;
+  int *p = &i;
 
-  p = &i;
+  printf("i is %d\n", i);
+  printf("i is also %d\n", *p);
 
-  i = 10;
-  *p = 20;
+  increment(p);
 
-  printf("The value of i is %d\n", i);
-  printf("The value of p is %d\n", *p);
-  printf("And its address is %p\n", (void *)p);
+  printf("i is %d\n", i);
 }
