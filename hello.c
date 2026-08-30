@@ -7,10 +7,7 @@ struct car {
 };
 
 int main(void) {
-  struct car saturn;
-  saturn.name = "Honda Civik";
-  saturn.price = 123.123;
-  saturn.speed = 120;
+  struct car saturn = {.name = "Honda Civik", .price = 123.123};
 
   printf("Name: \t%s\n", saturn.name);
   printf("Price: \t%f\n", saturn.price);
