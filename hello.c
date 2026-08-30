@@ -1,12 +1,11 @@
 #include <_printf.h>
 
 int main(void) {
-  int arr[3][3] = {[0][0] = 1, [1][1] = 1, [2][2] = 1};
+  int arr[5] = {1, 2, 3, 4, 5};
+  int *p;
 
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-      printf("%d\t", arr[i][j]);
-    }
-    printf("\n");
-  }
+  p = &arr[0];
+  printf("address of arr is %p\n", (void *)p);
+  p = arr;
+  printf("address of arr is %p\n", (void *)p);
 }
