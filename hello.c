@@ -2,14 +2,17 @@
 
 int main(void) {
   FILE *fp;
-  int x = 32;
+  unsigned char bytes[] = {
+      0xe3, 0x82, 0xa1, // ァ
+      0xe3, 0x83, 0x8d, // ネ
+      0xe3, 0x83, 0x87, // デ
+      0xe3, 0x83, 0xac, // レ
+      0xe3, 0x82, 0xa4  // イ
+  };
 
-  fp = stdout;
+  fp = fopen("hello.bin", "wb");
 
-  fputc('B', fp);
-  fputc('\n', fp);
-  fprintf(fp, "x = %d\n", x);
-  fputs("Hello world!\n", fp);
+  fwrite(bytes, sizeof(char), sizeof bytes / sizeof(char), fp);
 
   fclose(fp);
 }
