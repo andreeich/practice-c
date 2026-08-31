@@ -2,15 +2,14 @@
 
 int main(void) {
   FILE *fp;
-  char name[1024];
-  float length;
-  int mass;
+  int x = 32;
 
-  fp = fopen("hello.txt", "r");
+  fp = fopen("hello.txt", "w");
 
-  while ((fscanf(fp, "%s %f %d", name, &length, &mass)) != EOF) {
-    printf("%s whale, %d tones, %.1f meters\n", name, mass, length);
-  }
+  fputc('B', fp);
+  fputc('\n', fp);
+  fprintf(fp, "x = %d\n", x);
+  fputs("Hello world!\n", fp);
 
   fclose(fp);
 }
