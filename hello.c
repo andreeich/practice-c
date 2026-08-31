@@ -4,7 +4,7 @@ int main(void) {
   FILE *fp;
   int x = 32;
 
-  fp = fopen("hello.txt", "w");
+  fp = stdout;
 
   fputc('B', fp);
   fputc('\n', fp);
