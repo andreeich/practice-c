@@ -2,17 +2,17 @@
 
 int main(void) {
   FILE *fp;
-  unsigned char bytes[] = {
-      0xe3, 0x82, 0xa1, // ァ
-      0xe3, 0x83, 0x8d, // ネ
-      0xe3, 0x83, 0x87, // デ
-      0xe3, 0x83, 0xac, // レ
-      0xe3, 0x82, 0xa4  // イ
-  };
+  unsigned char c;
+  int count = 0;
 
-  fp = fopen("hello.bin", "wb");
+  fp = fopen("hello.bin", "rb");
 
-  fwrite(bytes, sizeof(char), sizeof bytes / sizeof(char), fp);
+  while (fread(&c, sizeof(char), 1, fp) > 0) {
+    printf("%x ", c);
+    if (++count % 3 == 0) {
+      printf("\n");
+    }
+  }
 
   fclose(fp);
 }
