@@ -2,17 +2,11 @@
 
 int main(void) {
   FILE *fp;
-  unsigned char c;
-  int count = 0;
+  unsigned short v = 0x1234;
 
-  fp = fopen("hello.bin", "rb");
+  fp = fopen("hello.bin", "wb");
 
-  while (fread(&c, sizeof(char), 1, fp) > 0) {
-    printf("%x ", c);
-    if (++count % 3 == 0) {
-      printf("\n");
-    }
-  }
+  fwrite(&v, sizeof(short), 1, fp);
 
   fclose(fp);
 }
