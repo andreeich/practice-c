@@ -1,12 +1,11 @@
 #include <stdio.h>
 
+typedef struct {
+  int x, y;
+} point;
+
 int main(void) {
-  FILE *fp;
-  unsigned short v = 0x1234;
+  point p = {.x = 1, .y = 2};
 
-  fp = fopen("hello.bin", "wb");
-
-  fwrite(&v, sizeof(short), 1, fp);
-
-  fclose(fp);
+  printf("%d %d\n", p.x, p.y);
 }
