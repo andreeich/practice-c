@@ -1,11 +1,16 @@
 #include <stdio.h>
 
-int main(void) {
-  int a[5] = {1, 2, 3, 4, 5};
-  int *p = &a[0];
+int new_strlen(char *s) {
+  char *p = s;
 
-  while (*p != 5) {
-    printf("%d\n", *p);
+  while (*p != '\0') {
     p++;
   }
+
+  return p - s;
+}
+
+int main(void) {
+  char *s = "Hello world";
+  printf("%d\n", new_strlen(s));
 }
