@@ -1,10 +1,23 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void) {
-  char a = 'X';
-  void *p = &a;
-  char *q = p;
+void *new_memcpy(void *dest, void *src, int byte_count) {
+  char *d = dest, *s = src;
+  while (byte_count--) {
+    *d++ = *s++;
+  }
+  return dest;
+}
 
-  printf("%c\n", *q);
+struct animal {
+  char *name;
+};
+
+int main(void) {
+  struct animal cat = {.name = "Lucy"};
+  struct animal dog;
+
+  new_memcpy(&dog, &cat, sizeof cat);
+
+  printf("%s", dog.name);
 }
