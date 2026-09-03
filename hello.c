@@ -1,16 +1,27 @@
 #include <stdio.h>
 
-int new_strlen(char *s) {
-  char *p = s;
-
-  while (*p != '\0') {
-    p++;
-  }
-
-  return p - s;
-}
-
 int main(void) {
-  char *s = "Hello world";
-  printf("%d\n", new_strlen(s));
+  int a[5] = {1, 2, 3, 4, 5};
+  int *p = a;
+
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", a[i]);
+  }
+  printf("\n");
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", p[i]);
+  }
+  printf("\n");
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", *(a + i));
+  }
+  printf("\n");
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", *(p + i));
+  }
+  printf("\n");
+  for (int i = 0; i < 5; i++) {
+    printf("%d ", *(p++));
+  }
+  printf("\n");
 }
