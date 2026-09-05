@@ -8,15 +8,9 @@ int main(void) {
     printf("Error allocating 10 ints!");
   }
 
-  for (int i = 0; i < 10; i++) {
-    printf("%d\n", p[i]);
-  }
+  p = realloc(p, sizeof(*p) * 20);
 
-  for (int i = 0; i < 10; i++) {
-    *(p + i) = i * 5;
-  }
-
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 20; i++) {
     printf("%d\n", p[i]);
   }
 
