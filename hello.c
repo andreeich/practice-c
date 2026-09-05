@@ -2,15 +2,19 @@
 #include <stdlib.h>
 
 int main(void) {
-  int *p;
+  int *p = malloc(sizeof(*p) * 10);
 
-  if ((p = malloc(sizeof(*p) * 10)) == NULL) {
+  if (p == NULL) {
     printf("Error allocating 10 ints!");
   }
 
-  *p = 4;
+  for (int i = 0; i < 10; i++) {
+    *(p + i) = i * 5;
+  }
 
-  printf("%d\n", *p);
+  for (int i = 0; i < 10; i++) {
+    printf("%d\n", p[i]);
+  }
 
   free(p);
 }
