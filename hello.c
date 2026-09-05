@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int main(void) {
-  int *p = malloc(sizeof(*p) * 10);
+  int *p = calloc(10, sizeof(*p));
 
   if (p == NULL) {
     printf("Error allocating 10 ints!");
   }
-
-  memset(p, 0, sizeof(*p) * 10);
 
   for (int i = 0; i < 10; i++) {
     printf("%d\n", p[i]);
