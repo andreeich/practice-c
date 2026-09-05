@@ -2,7 +2,11 @@
 #include <stdlib.h>
 
 int main(void) {
-  int *p = malloc(sizeof(*p));
+  int *p;
+
+  if ((p = malloc(sizeof(*p) * 10)) == NULL) {
+    printf("Error allocating 10 ints!");
+  }
 
   *p = 4;
 
