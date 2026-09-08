@@ -2,9 +2,13 @@
 #include <stdio.h>
 
 int main(void) {
-  printf("%d %d %d\n", FLT_DIG, DBL_DIG, LDBL_DIG);
-  double a = 1.23456789123456789;
-  float b = a;
-  printf("%.16f\n", a);
-  printf("%.16f\n", b);
+  float a = 3.14159;
+  float b = 0.00000265358f;
+
+  printf("%.5f\n", a);
+  printf("%.11f\n", b);
+
+  a += b; // 3.14159265358
+
+  printf("%.11f\n", a);
 }
