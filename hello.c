@@ -2,13 +2,7 @@
 #include <stdio.h>
 
 int main(void) {
-  float a = 3.14159;
-  float b = 0.00000265358f;
-
-  printf("%.5f\n", a);
-  printf("%.11f\n", b);
-
-  a += b; // 3.14159265358
-
-  printf("%.11f\n", a);
+  float a = 0xa.1p3;
+  printf("%a\n", a);
+  printf("%e\n", a);
 }
