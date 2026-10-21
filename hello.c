@@ -6,5 +6,10 @@ int main(void) {
   char *badchar;
   unsigned long int i = strtoul(s, &badchar, 10);
   printf("%lu\n", i);
-  printf("Invalid character: %c\n", *badchar);
+
+  if (*badchar == '\0') {
+    printf("All good!\n");
+  } else {
+    printf("Invalid character: %c\n", *badchar);
+  }
 }
