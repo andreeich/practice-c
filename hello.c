@@ -1,9 +1,11 @@
+#include <float.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void) {
-  char x = 10, y = 23;
-  int i = x + y;
-  printf("%d\n", i);
+  float x = DBL_MAX;
+  double y = DBL_MAX;
+
+  printf("%f: %f\n", x, y);
 }
