@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 int main(void) {
-  int i = 6;
-  bool t = i;
-  printf("%d", t);
+  char x = 10, y = 23;
+  int i = x + y;
+  printf("%d\n", i);
 }
