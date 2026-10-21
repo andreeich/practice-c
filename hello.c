@@ -2,7 +2,9 @@
 #include <stdlib.h>
 
 int main(void) {
-  char *s = "3490";
-  unsigned long int i = strtoul(s, NULL, 10);
-  printf("%lu", i);
+  char *s = "34x90";
+  char *badchar;
+  unsigned long int i = strtoul(s, &badchar, 10);
+  printf("%lu\n", i);
+  printf("Invalid character: %c\n", *badchar);
 }
