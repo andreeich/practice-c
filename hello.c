@@ -4,8 +4,9 @@
 #include <stdlib.h>
 
 int main(void) {
-  float x = DBL_MAX;
-  double y = DBL_MAX;
-
-  printf("%f: %f\n", x, y);
+  int i = 10;
+  void *p = &i;
+  int *j = p;
+  int k = *j;
+  printf("%d\n", k);
 }
