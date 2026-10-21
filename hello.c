@@ -1,10 +1,9 @@
-#include <float.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
-  float f = 1.1;
-  char s[10];
-
-  sprintf(s, "%f", f);
-  printf("%s", s);
+  char *s = "3.14";
+  float f;
+  f = atof(s);
+  printf("%f\n", f);
 }
