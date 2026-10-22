@@ -3,19 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *restrict a, int *restrict b) {
-  int t;
-
-  t = *a;
-  *a = *b;
-  *b = t;
+void counter(void) {
+  static int count = 1;
+  printf("counter is %d\n", count);
+  count++;
 }
 
 int main(void) {
-  int x = 10, y = 20;
-  printf("x=%d,y=%d\n", x, y);
-  swap(&x, &y);
-  printf("x=%d,y=%d\n", x, y);
-  swap(&x, &x); // violation
-  printf("x=%d,y=%d\n", x, y);
+  counter();
+  counter();
+  counter();
+  counter();
+  counter();
 }
