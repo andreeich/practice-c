@@ -4,9 +4,10 @@
 #include <stdlib.h>
 
 int main(void) {
-  int i = 10;
-  void *p = &i;
-  int *j = p;
-  int k = *j;
-  printf("%d\n", k);
+  char *const *p;
+  char a = 'c';
+  char *b = &a;
+  p = &b;
+  *p = b;
+  **p = *b;
 }
