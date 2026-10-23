@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
       fprintf(stderr, "Could not parse: %c\n", *badchar);
       return -1;
     }
-
+    printf("%p\n", (void *)*p);
     total += value;
   }
 
