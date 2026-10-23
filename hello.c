@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern char **environ;
+
 int main(void) {
-  char *val = getenv("HERDR_ENV");
-  if (val == NULL) {
-    printf("Cannot find the HERDR_ENV variable!\n");
-    return EXIT_FAILURE;
+  for (char **p = environ; *p != NULL; p++) {
+    printf("%s\n", *p);
   }
-  printf("Value: %s\n", val);
 }
