@@ -11,12 +11,11 @@ int main(int argc, char **argv) {
     int value = strtol(*p, &badchar, 10);
     if (*badchar != '\0') {
       fprintf(stderr, "Could not parse: %c\n", *badchar);
-      return -1;
+      return EXIT_FAILURE;
     }
-    printf("%p\n", (void *)*p);
     total += value;
   }
 
   printf("Total: %d", total);
-  return total;
+  return EXIT_SUCCESS;
 }
