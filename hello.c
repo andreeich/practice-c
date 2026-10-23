@@ -4,9 +4,11 @@
 int main(int argc, char **argv) {
   int total = 0;
 
-  for (int i = 1; i < argc; i++) {
+  (void)argc;
+
+  for (char **p = argv + 1; *p != NULL; p++) {
     char *badchar;
-    int value = strtol(argv[i], &badchar, 10);
+    int value = strtol(*p, &badchar, 10);
     if (*badchar != '\0') {
       fprintf(stderr, "Could not parse: %c\n", *badchar);
       return -1;
