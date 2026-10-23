@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-extern char **environ;
+int main(int argc, char **argv, char **env) {
+  (void)argc;
+  (void)argv;
 
-int main(void) {
-  for (char **p = environ; *p != NULL; p++) {
+  for (char **p = env; *p != NULL; p++) {
     printf("%s\n", *p);
   }
 }
