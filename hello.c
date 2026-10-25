@@ -14,7 +14,7 @@ void writeBin(void) {
 
 int main(void) {
   unsigned char input[] = {
-#embed "input.bin"
+#embed "input.bin" limit(3)
   };
 
   for (size_t i = 0; i < sizeof input; i++) {
