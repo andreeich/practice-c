@@ -18,6 +18,12 @@ int main(void) {
   };
 
   for (size_t i = 0; i < sizeof input; i++) {
-    printf("%c", input[i]);
+    printf("%d\n", input[i]);
   }
+
+  int a =
+#embed "input.bin" limit(1) if_empty(0)
+      ;
+
+  printf("%c\n", a);
 }
