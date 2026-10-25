@@ -1,22 +1,23 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-#define ASSERT_ENABLED 1
+void writeBin(void) {
+  int a[] = {1, 2, 3, 4};
 
-#if ASSERT_ENABLED
-#define ASSERT(c, m)                                                           \
-  do {                                                                         \
-    if (!(c)) {                                                                \
-      fprintf(stderr, __FILE__ ":%d: assertion %s failed: %s\n", __LINE__, #c, \
-              m);                                                              \
-      exit(1);                                                                 \
-    }                                                                          \
-  } while (0)
-#else
-#define ASSERT(c, m) // Empty macro if not enabled
-#endif
+  FILE *fp = fopen("input.bin", "w");
+
+  for (int i = 0; i < 4; i++) {
+    fputc(a[i], fp);
+  }
+
+  fclose(fp);
+}
 
 int main(void) {
-  int a = 24;
-  ASSERT(a < 20, "x must be under 20");
+  unsigned char input[] = {
+#embed "input.bin"
+  };
+
+  for (size_t i = 0; i < sizeof input; i++) {
+    printf("%c", input[i]);
+  }
 }
