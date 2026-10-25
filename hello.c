@@ -1,5 +1,8 @@
 #include <stdio.h>
 
-#define X(...) #__VA_ARGS__
+#define PRINT_INT_VAL(x) printf("%s = %d", #x, x)
 
-int main(void) { printf("%s\n", X(1, 2, something)); }
+int main(void) {
+  int a = 4;
+  PRINT_INT_VAL(a);
+}
