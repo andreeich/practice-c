@@ -13,17 +13,11 @@ void writeBin(void) {
 }
 
 int main(void) {
-  unsigned char input[] = {
-#embed "input.bin" limit(3)
-  };
+  unsigned char a[] = {
+#embed "input.bin" limit(0) suffix(, )
+      '2'};
 
-  for (size_t i = 0; i < sizeof input; i++) {
-    printf("%d\n", input[i]);
+  for (size_t i = 0; i < sizeof a; i++) {
+    printf("%c\n", a[i]);
   }
-
-  int a =
-#embed "input.bin" limit(1) if_empty(0)
-      ;
-
-  printf("%c\n", a);
 }
