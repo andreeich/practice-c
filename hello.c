@@ -1,10 +1,20 @@
 #include <stdio.h>
 
-int main(void) {
-  int random_nums[] = {11, 22, 33, 44};
+struct cabin_information {
+  int window_count;
+  int o2level;
+};
 
-#pragma omp parallel for
-  for (size_t i = 0; i < sizeof random_nums / sizeof random_nums[0]; i++) {
-    printf("%d\n", random_nums[i]);
-  }
+struct spaceship {
+  char *manufacturer;
+  struct cabin_information ci;
+};
+
+int main(void) {
+  struct spaceship s = {.manufacturer = "General Products",
+                        .ci.window_count = 8,
+                        .ci.o2level = 21};
+
+  printf("%s: %d seats, %d%% oxygen \n", s.manufacturer, s.ci.window_count,
+         s.ci.o2level);
 }
