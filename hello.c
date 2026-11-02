@@ -12,8 +12,7 @@ struct spaceship {
 
 int main(void) {
   struct spaceship s = {.manufacturer = "General Products",
-                        .ci.window_count = 8,
-                        .ci.o2level = 21};
+                        .ci = {.window_count = 8, .o2level = 21}};
 
   printf("%s: %d seats, %d%% oxygen \n", s.manufacturer, s.ci.window_count,
          s.ci.o2level);
