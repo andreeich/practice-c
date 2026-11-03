@@ -1,19 +1,33 @@
 #include <stdio.h>
 
-struct cabin_information {
-  int window_count;
-  int o2level;
+struct passenger {
+  char *name;
+  int covid_vaccinated;
 };
+
+#define MAX_PASSENGERS 8
 
 struct spaceship {
   char *manufacturer;
-  struct cabin_information ci;
+  struct passenger passenger[MAX_PASSENGERS];
 };
 
 int main(void) {
-  struct spaceship s = {.manufacturer = "General Products",
-                        .ci = {.window_count = 8, .o2level = 21}};
+  struct spaceship s = {
+      .manufacturer = "General Products",
+      .passenger = {
+          [0].name = "Gridley, Lewis",
+          [0].covid_vaccinated = 0,
 
-  printf("%s: %d seats, %d%% oxygen \n", s.manufacturer, s.ci.window_count,
-         s.ci.o2level);
+          [7] = {.name = "Brown, Teela", .covid_vaccinated = 1},
+      }};
+
+  printf("Passengers for %s ship:\n", s.manufacturer);
+
+  for (int i = 0; i < MAX_PASSENGERS; i++) {
+    if (s.passenger[i].name != NULL) {
+      printf("    %s (%svaccinated)\n", s.passenger[i].name,
+             s.passenger[i].covid_vaccinated ? "" : "not ");
+    }
+  }
 }
