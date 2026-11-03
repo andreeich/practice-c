@@ -4,13 +4,25 @@
 
 struct len_string {
   int length;
-  char data[0];
+  char data[];
 };
 
+struct len_string *len_string_from_c_string(char *s) {
+  int len = strlen(s);
+
+  struct len_string *ls = malloc(sizeof *ls + len);
+
+  ls->length = len;
+
+  memcpy(ls->data, s, len);
+
+  return ls;
+}
+
 int main(void) {
-  struct len_string *s = malloc(sizeof(struct len_string));
+  char *a = "something";
 
-  strcpy(s->data, "Hello, world!");
+  struct len_string *s = len_string_from_c_string(a);
 
-  printf("%s", s->data);
+  printf("%s: %d\n", s->data, s->length);
 }
